@@ -84,7 +84,7 @@ class PasswordResetConfirmTests(TestCase):
         '''
         Create a valid password reset token based on how django creates the token internally
         '''
-        self.uid = urlsafe_base64_encode(force_bytes(user.pk)).decode
+        self.uid = urlsafe_base64_encode(force_bytes(user.pk))
         self.token = default_token_generator.make_token(user)
 
         url = reverse('password_reset_confirm', kwargs={
@@ -117,7 +117,7 @@ class PasswordResetConfirmTests(TestCase):
 class InvalidPasswordResetConfirmTests(TestCase):
     def setUp(self):
         user = User.objects.create_user(username="john", email="john@gmail.com", password="12345abcde")
-        uid = urlsafe_base64_encode(force_bytes(user.pk)).decode()
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
         token = default_token_generator.make_token(user)
 
         '''
@@ -136,7 +136,7 @@ class InvalidPasswordResetConfirmTests(TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_html(self):
-        password_reset_url = reverse('password_test')
+        password_reset_url = reverse('password_reset')
         self.assertContains(self.response, 'invalid password reset link')
         self.assertContains(self.response, 'href="{0}"'.format(password_reset_url))
 
