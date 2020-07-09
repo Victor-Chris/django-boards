@@ -26,4 +26,4 @@ class PasswordResetMailTests(TestCase):
 
     def test_email_to(self):
         self.assertEqual(['john@gmail.com'], self.email.to)
-        
+

@@ -89,3 +89,4 @@ class LoginRerquiredNewTopicTests(TestCase):
     def test_redirection(self):
         login_url = reverse('login')
         self.assertRedirects(self.response, '{login_url}?next={url}'.format(login_url=login_url, url=self.url))
+

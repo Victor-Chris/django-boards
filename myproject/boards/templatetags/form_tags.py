@@ -16,4 +16,4 @@ def input_class(bound_field):
             css_class = 'is-valid'
 
     return 'form-control {}'.format(css_class)
-    
+
