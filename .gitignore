@@ -1,1 +1,5 @@
 /venv
+
+# SQLite database
+.sqlite3
+.env
